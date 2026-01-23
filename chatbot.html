@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartAssist AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="public/css/style.css">
+
+</head>
+
+<body>
+
+  <header class="jd-header">
+    <div class="container-fluid jd-inner">
+
+      <!-- LOGO -->
+      <div class="jd-logo" style="cursor: pointer;" onclick="location.href='user-dashboard.html'">MSME</div>
+
+      <!-- LOCATION -->
+      <div class="dropdown">
+        <button class="jd-location dropdown-toggle" data-bs-toggle="dropdown">
+          <i class="bi bi-geo-alt"></i>
+          <span>Mumbai</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item">Delhi</a></li>
+          <li><a class="dropdown-item">Bangalore</a></li>
+          <li><a class="dropdown-item">Chennai</a></li>
+        </ul>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="jd-search">
+        <input type="text" placeholder="Search for Spa & Salons">
+        <div class="jd-search-actions">
+          <i class="bi bi-mic-fill jd-mic"></i>
+          <button class="jd-search-btn">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+      <!-- CATEGORY DROPDOWN -->
+      <!-- CATEGORY DROPDOWN -->
+      <div class="jd-category-wrapper">
+        <button class="jd-category-btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+          <span>Categories</span>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+
+        <div class="dropdown-menu jd-category-mega">
+          <div class="jd-category-mega-inner">
+
+            <!-- Left Navigation -->
+            <div class="jd-category-nav">
+              <div class="jd-category-nav-item active" data-tab="products">
+                Products
+                <i class="bi bi-chevron-right"></i>
+              </div>
+              <div class="jd-category-nav-item" data-tab="services">
+                Services
+                <i class="bi bi-chevron-right"></i>
+              </div>
+              <div class="jd-category-nav-item" data-tab="all">
+                All Categories
+                <i class="bi bi-chevron-right"></i>
+              </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="jd-category-content">
+
+              <!-- PRODUCTS SECTION -->
+              <div class="jd-category-content-section active">
+                <div class="jd-category-section">
+                  <h3 class="jd-category-section-title">Popular Product Categories</h3>
+                  <div class="jd-category-grid">
+
+                    <div class="jd-category-column">
+                      <h4>IT Products</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Desktop Computers</a>
+                        <a href="#">Laptop Notebook</a>
+                        <a href="#">Computer Printers</a>
+                        <a href="#">Tablet Computers</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Automobiles</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Buses</a>
+                        <a href="#">Tractors</a>
+                        <a href="#">Cars</a>
+                        <a href="#">Utility Vehicles</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Furniture</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Class Room Desking</a>
+                        <a href="#">Executive Table</a>
+                        <a href="#">Revolving Chair</a>
+                        <a href="#">Movable File Storage System</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Medical Products</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Alcohol Based Hand Sanitizer</a>
+                        <a href="#">Surgical Gloves as per IS 4148</a>
+                        <a href="#">Disposable Syringes as per IS 10258</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Stationery Items</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Diaries Printed Plain Register</a>
+                        <a href="#">Gel Pen</a>
+                        <a href="#">Maplitho Paper</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Electrical Appliances</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Led Luminaire</a>
+                        <a href="#">Molded Case Circuit Breakers (MCCB)</a>
+                        <a href="#">Telecommunication Cable</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Electronic Equipments</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Television TV</a>
+                        <a href="#">Domestic Refrigerators</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Textile Products</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Handloom Cotton Bed Sheets</a>
+                        <a href="#">Cotton Towels as per IS 7056</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Pipes and Fittings</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Steel Tubes, Tubulars And Fittings</a>
+                        <a href="#">Commercial CPVC Pipe Fittings</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="jd-browse-all-btn">
+                  View All Products →
+                </div>
+              </div>
+
+              <!-- SERVICES SECTION -->
+              <div class="jd-category-content-section">
+                <div class="jd-category-section">
+                  <h3 class="jd-category-section-title">Trending Services</h3>
+                  <div class="jd-category-grid">
+
+                    <div class="jd-category-column">
+                      <h4>Manpower Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Manpower Outsourcing - Minimum wage</a>
+                        <a href="#">Manpower Outsourcing - Fixed Remuneration</a>
+                        <a href="#">Security Manpower Service (Version 2.0)</a>
+                        <a href="#">Short Term Cab & Taxi Hiring Services</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Printing Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Paper-based Printing Services</a>
+                        <a href="#">Non Paper Printing Services - Area Based</a>
+                        <a href="#">Non Paper Printing Services - Quantity Based</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Transport Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Goods Transport – Per Trip based</a>
+                        <a href="#">Goods Transport – Per KM Based</a>
+                        <a href="#">Bus Hiring Service - Short Term</a>
+                        <a href="#">Vehicle Hiring Service - Per Vehicle-Day</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Catering Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Catering service (Event Based)</a>
+                        <a href="#">Catering service (Duration Based)</a>
+                        <a href="#">Catering Service per Packet based</a>
+                        <a href="#">Monthly Basic Cab & Taxi Hiring Services</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Maintenance Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Annual Maintenance - Desktops, Laptops</a>
+                        <a href="#">Annual Maintenance - Photocopier Machine</a>
+                        <a href="#">Annual Maintenance - AIR CONDITIONER</a>
+                        <a href="#">Cleaning, Sanitation and Disinfection</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Hiring Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Hiring of Sanitation Service</a>
+                        <a href="#">Hiring of Mortuary Van</a>
+                        <a href="#">Hiring of Tea/Coffee Vending Machine</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="jd-category-section">
+                  <h3 class="jd-category-section-title">Emerging Services</h3>
+                  <div class="jd-category-grid">
+
+                    <div class="jd-category-column">
+                      <h4>Business Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Gift Vouchers Service</a>
+                        <a href="#">Missed Call and Keyword Alert Service</a>
+                        <a href="#">Facility Management - Manpower based</a>
+                        <a href="#">Canteen Service - Percentage Model</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Technical Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Data Recovery and Data Wiping Service</a>
+                        <a href="#">Mine Development & Operations - Revenue Sharing</a>
+                        <a href="#">Record Management - Storage Area Based</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Specialized Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Custom Bid for Services</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="jd-browse-all-btn">
+                  View All Services →
+                </div>
+              </div>
+
+              <!-- ALL CATEGORIES SECTION -->
+              <div class="jd-category-content-section">
+                <div class="jd-category-section">
+                  <h3 class="jd-category-section-title">All Categories</h3>
+                  <div class="jd-category-grid">
+
+                    <div class="jd-category-column">
+                      <h4>Quick Links</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Browse All Products</a>
+                        <a href="#">Browse All Services</a>
+                        <a href="#">Browse All Brands</a>
+                        <a href="#">BOQ Based Bidding</a>
+                        <a href="#">Enhanced Bunching - Services</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+         <a href="#" class="nav-link ai-chat-btn"">
+      <i class="bi bi-robot"></i> ASk AI
+    </a>
+
+
+      <!-- RIGHT ICONS -->
+      <div class="jd-actions">
+
+        <i class="bi bi-bell jd-icon"></i>
+        <i class="bi bi-cart jd-icon"></i>
+
+        <!-- LANGUAGE -->
+        <div class="dropdown">
+          <i class="bi bi-translate jd-icon dropdown-toggle" data-bs-toggle="dropdown"></i>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item">English</a></li>
+            <li><a class="dropdown-item">Hindi</a></li>
+            <li><a class="dropdown-item">Odia</a></li>
+          </ul>
+        </div>
+
+        <!-- PROFILE -->
+        <div class="dropdown">
+          <i class="bi bi-person-circle jd-icon dropdown-toggle" data-bs-toggle="dropdown"></i>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item">Profile</a></li>
+            <li><a class="dropdown-item">Orders</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item text-danger">Logout</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </header>
+  
+    <div class="ai-wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="ai-sidebar">
+    <div class="ai-brand">SmartAssist</div>
+
+    <div class="new-chat">
+      <i class="bi bi-plus"></i> New Chat
+    </div>
+
+    <div class="ai-nav">
+      <a href="#"><i class="bi bi-house"></i> Home</a>
+      <a href="#"><i class="bi bi-compass"></i> Discover</a>
+      <a href="#"><i class="bi bi-clock-history"></i> My History</a>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="ai-main">
+
+    <div class="welcome text-center">
+      <h1>Welcome to <span>SmartAssist AI</span></h1>
+      <p>Your personalized digital assistant</p>
+    </div>
+
+    <!-- PROMPT CARDS -->
+    <div class="prompt-cards">
+      <div class="prompt-card">
+        <i class="bi bi-lightning"></i>
+        <strong>What should I buy?</strong><br>
+        Suggest products based on my needs
+      </div>
+
+      <div class="prompt-card">
+        <i class="bi bi-info-circle"></i>
+        <strong>Product details</strong><br>
+        Explain specs, pricing & delivery
+      </div>
+
+      <div class="prompt-card">
+        <i class="bi bi-chat"></i>
+        <strong>Ask anything</strong><br>
+        Get instant AI assistance
+      </div>
+    </div>
+
+    <!-- INPUT -->
+    <div class="ai-input">
+      <div class="ai-input-box">
+        <textarea rows="1" placeholder="Ask SmartAssist..."></textarea>
+        <button class="send-btn">
+          <i class="bi bi-send"></i>
+        </button>
+      </div>
+      <div class="footer-note text-center">
+        SmartAssist AI may generate incorrect responses. Verify important info.
+      </div>
+    </div>
+
+  </main>
+    </div>
+
+</body>
+</html>

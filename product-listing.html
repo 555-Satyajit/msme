@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT Products - Desktop Computers | MSME</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="public/css/style.css">
+
+
+</head>
+
+
+<!-- FLOATING CHAT BUTTON -->
+<div id="chatbot-toggle">
+  <i class="bi bi-robot"></i>
+
+  <span class="chat-label">
+    Chat Now
+    <button class="chat-label-close" onclick="closeChatLabel(event)">✕</button>
+  </span>
+</div>
+
+<!-- CHATBOT WINDOW -->
+<div id="chatbot-box">
+  <div class="chatbot-header">
+    <span>AI Assistant</span>
+    <button class="chat-close" onclick="toggleChatbot()">✕</button>
+  </div>
+
+  <div class="chatbot-messages" id="chatMessages">
+    <div class="bot-msg">Hi 👋 How can I help you today?</div>
+  </div>
+
+  <div class="chatbot-input">
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">
+      <i class="bi bi-send"></i>
+    </button>
+  </div>
+</div>
+
+
+<body>
+
+    <header class="jd-header">
+    <div class="container-fluid jd-inner">
+
+      <!-- LOGO -->
+      <div class="jd-logo" style="cursor: pointer;" onclick="location.href='user-dashboard.html'">MSME</div>
+
+      <!-- LOCATION -->
+      <div class="dropdown">
+        <button class="jd-location dropdown-toggle" data-bs-toggle="dropdown">
+          <i class="bi bi-geo-alt"></i>
+          <span>Mumbai</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item">Delhi</a></li>
+          <li><a class="dropdown-item">Bangalore</a></li>
+          <li><a class="dropdown-item">Chennai</a></li>
+        </ul>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="jd-search">
+        <input type="text" placeholder="Search for Spa & Salons">
+        <div class="jd-search-actions">
+          <i class="bi bi-mic-fill jd-mic"></i>
+          <button class="jd-search-btn">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+      <!-- CATEGORY DROPDOWN -->
+      <!-- CATEGORY DROPDOWN -->
+      <div class="jd-category-wrapper">
+        <button class="jd-category-btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+          <span>Categories</span>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+
+        <div class="dropdown-menu jd-category-mega">
+          <div class="jd-category-mega-inner">
+
+            <!-- Left Navigation -->
+            <div class="jd-category-nav">
+              <div class="jd-category-nav-item active" data-tab="products">
+                Products
+                <i class="bi bi-chevron-right"></i>
+              </div>
+              <div class="jd-category-nav-item" data-tab="services">
+                Services
+                <i class="bi bi-chevron-right"></i>
+              </div>
+              <div class="jd-category-nav-item" data-tab="all">
+                All Categories
+                <i class="bi bi-chevron-right"></i>
+              </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="jd-category-content">
+
+              <!-- PRODUCTS SECTION -->
+              <div class="jd-category-content-section active">
+                <div class="jd-category-section">
+                  <h3 class="jd-category-section-title">Popular Product Categories</h3>
+                  <div class="jd-category-grid">
+
+                    <div class="jd-category-column">
+                      <h4>IT Products</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Desktop Computers</a>
+                        <a href="#">Laptop Notebook</a>
+                        <a href="#">Computer Printers</a>
+                        <a href="#">Tablet Computers</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Automobiles</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Buses</a>
+                        <a href="#">Tractors</a>
+                        <a href="#">Cars</a>
+                        <a href="#">Utility Vehicles</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Furniture</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Class Room Desking</a>
+                        <a href="#">Executive Table</a>
+                        <a href="#">Revolving Chair</a>
+                        <a href="#">Movable File Storage System</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Medical Products</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Alcohol Based Hand Sanitizer</a>
+                        <a href="#">Surgical Gloves as per IS 4148</a>
+                        <a href="#">Disposable Syringes as per IS 10258</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Stationery Items</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Diaries Printed Plain Register</a>
+                        <a href="#">Gel Pen</a>
+                        <a href="#">Maplitho Paper</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Electrical Appliances</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Led Luminaire</a>
+                        <a href="#">Molded Case Circuit Breakers (MCCB)</a>
+                        <a href="#">Telecommunication Cable</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Electronic Equipments</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Television TV</a>
+                        <a href="#">Domestic Refrigerators</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Textile Products</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Handloom Cotton Bed Sheets</a>
+                        <a href="#">Cotton Towels as per IS 7056</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Pipes and Fittings</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Steel Tubes, Tubulars And Fittings</a>
+                        <a href="#">Commercial CPVC Pipe Fittings</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="jd-browse-all-btn">
+                  View All Products →
+                </div>
+              </div>
+
+              <!-- SERVICES SECTION -->
+              <div class="jd-category-content-section">
+                <div class="jd-category-section">
+                  <h3 class="jd-category-section-title">Trending Services</h3>
+                  <div class="jd-category-grid">
+
+                    <div class="jd-category-column">
+                      <h4>Manpower Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Manpower Outsourcing - Minimum wage</a>
+                        <a href="#">Manpower Outsourcing - Fixed Remuneration</a>
+                        <a href="#">Security Manpower Service (Version 2.0)</a>
+                        <a href="#">Short Term Cab & Taxi Hiring Services</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Printing Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Paper-based Printing Services</a>
+                        <a href="#">Non Paper Printing Services - Area Based</a>
+                        <a href="#">Non Paper Printing Services - Quantity Based</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Transport Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Goods Transport – Per Trip based</a>
+                        <a href="#">Goods Transport – Per KM Based</a>
+                        <a href="#">Bus Hiring Service - Short Term</a>
+                        <a href="#">Vehicle Hiring Service - Per Vehicle-Day</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Catering Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Catering service (Event Based)</a>
+                        <a href="#">Catering service (Duration Based)</a>
+                        <a href="#">Catering Service per Packet based</a>
+                        <a href="#">Monthly Basic Cab & Taxi Hiring Services</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Maintenance Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Annual Maintenance - Desktops, Laptops</a>
+                        <a href="#">Annual Maintenance - Photocopier Machine</a>
+                        <a href="#">Annual Maintenance - AIR CONDITIONER</a>
+                        <a href="#">Cleaning, Sanitation and Disinfection</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Hiring Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Hiring of Sanitation Service</a>
+                        <a href="#">Hiring of Mortuary Van</a>
+                        <a href="#">Hiring of Tea/Coffee Vending Machine</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="jd-category-section">
+                  <h3 class="jd-category-section-title">Emerging Services</h3>
+                  <div class="jd-category-grid">
+
+                    <div class="jd-category-column">
+                      <h4>Business Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Gift Vouchers Service</a>
+                        <a href="#">Missed Call and Keyword Alert Service</a>
+                        <a href="#">Facility Management - Manpower based</a>
+                        <a href="#">Canteen Service - Percentage Model</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Technical Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Data Recovery and Data Wiping Service</a>
+                        <a href="#">Mine Development & Operations - Revenue Sharing</a>
+                        <a href="#">Record Management - Storage Area Based</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Specialized Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Custom Bid for Services</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="jd-browse-all-btn">
+                  View All Services →
+                </div>
+              </div>
+
+              <!-- ALL CATEGORIES SECTION -->
+              <div class="jd-category-content-section">
+                <div class="jd-category-section">
+                  <h3 class="jd-category-section-title">All Categories</h3>
+                  <div class="jd-category-grid">
+
+                    <div class="jd-category-column">
+                      <h4>Quick Links</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Browse All Products</a>
+                        <a href="#">Browse All Services</a>
+                        <a href="#">Browse All Brands</a>
+                        <a href="#">BOQ Based Bidding</a>
+                        <a href="#">Enhanced Bunching - Services</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT ICONS -->
+      <div class="jd-actions">
+
+        <i class="bi bi-bell jd-icon"></i>
+        <i class="bi bi-cart jd-icon"></i>
+
+        <!-- LANGUAGE -->
+        <div class="dropdown">
+          <i class="bi bi-translate jd-icon dropdown-toggle" data-bs-toggle="dropdown"></i>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item">English</a></li>
+            <li><a class="dropdown-item">Hindi</a></li>
+            <li><a class="dropdown-item">Odia</a></li>
+          </ul>
+        </div>
+
+        <!-- PROFILE -->
+        <div class="dropdown">
+          <i class="bi bi-person-circle jd-icon dropdown-toggle" data-bs-toggle="dropdown"></i>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item">Profile</a></li>
+            <li><a class="dropdown-item">Orders</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item text-danger">Logout</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Category Banner Section -->
+  <section class="category-banner">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb category-breadcrumb">
+          <li class="category-breadcrumb-item"><a href="#">Home</a></li>
+          <li class="category-breadcrumb-item"><a href="#">IT Products</a></li>
+          <li class="category-breadcrumb-item active">Desktop Computers</li>
+        </ol>
+      </nav>
+      <div class="category-banner-content">
+        <h1>Explore The Various Collection of Desktop Computers</h1>
+        <p>Don't miss out on amazing catalog from our govt verified sellers</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-4">
+    <div class="container">
+      <div class="row">
+        
+        <!-- Sidebar Filters -->
+        <div class="col-lg-3 mb-4">
+          <div class="filters-sidebar">
+            
+            <!-- Brand Filter -->
+            <div class="filter-group">
+              <div class="filter-header">
+                <span>Brand</span>
+                <small>Clear</small>
+              </div>
+              <div class="filter-list">
+                <div class="filter-item">
+                  <input type="checkbox" id="brand1">
+                  <label for="brand1">Canon</label>
+                  <span class="filter-item-count">14</span>
+                </div>
+                <div class="filter-item">
+                  <input type="checkbox" id="brand2">
+                  <label for="brand2">HP</label>
+                  <span class="filter-item-count">22</span>
+                </div>
+                <div class="filter-item">
+                  <input type="checkbox" id="brand3">
+                  <label for="brand3">Dell</label>
+                  <span class="filter-item-count">18</span>
+                </div>
+                <div class="filter-item">
+                  <input type="checkbox" id="brand4">
+                  <label for="brand4">Lenovo</label>
+                  <span class="filter-item-count">8</span>
+                </div>
+                <div class="filter-item">
+                  <input type="checkbox" id="brand5">
+                  <label for="brand5">Acer</label>
+                  <span class="filter-item-count">11</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="filter-group">
+              <div class="filter-header">
+                <span>Category</span>
+              </div>
+              <div class="filter-list">
+                <div class="filter-item">
+                  <input type="checkbox" id="cat1" checked>
+                  <label for="cat1">Desktop</label>
+                  <span class="filter-item-count">65</span>
+                </div>
+                <div class="filter-item">
+                  <input type="checkbox" id="cat2">
+                  <label for="cat2">T-Shirts</label>
+                  <span class="filter-item-count">42</span>
+                </div>
+                <div class="filter-item">
+                  <input type="checkbox" id="cat3">
+                  <label for="cat3">Jacket</label>
+                  <span class="filter-item-count">28</span>
+                </div>
+                <div class="filter-item">
+                  <input type="checkbox" id="cat4">
+                  <label for="cat4">Stationery</label>
+                  <span class="filter-item-count">15</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stock Filter -->
+            <div class="filter-group">
+              <div class="filter-header">
+                <span>Stock/Availability</span>
+              </div>
+              <div class="filter-list">
+                <div class="filter-item">
+                  <input type="checkbox" id="stock1">
+                  <label for="stock1">In Stock</label>
+                  <span class="filter-item-count">45</span>
+                </div>
+                <div class="filter-item">
+                  <input type="checkbox" id="stock2">
+                  <label for="stock2">Out of Stock</label>
+                  <span class="filter-item-count">8</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Price Range -->
+            <div class="filter-group">
+              <div class="filter-header">
+                <span>Price</span>
+              </div>
+              <div class="price-inputs">
+                <div class="price-field">
+                  <label>Min</label>
+                  <input type="number" value="1000" min="0">
+                </div>
+                <div class="price-field">
+                  <label>Max</label>
+                  <input type="number" value="100000" min="0">
+                </div>
+              </div>
+              <div class="price-range-slider">
+                <input type="range" min="0" max="100000" value="50000" class="form-range">
+              </div>
+            </div>
+
+            <button class="filter-apply-btn">Apply Filters</button>
+          </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="col-lg-9">
+          
+          <!-- Products Header -->
+          <div class="products-header">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+              <div class="products-count">
+                Showing <strong>1-9</strong> of <strong>73</strong> results
+              </div>
+              <div class="products-controls">
+                <div class="view-toggle">
+                  <button class="view-mode-btn active" onclick="toggleView('grid')">
+                    <i class="bi bi-grid-3x3-gap"></i>
+                  </button>
+                  <button class="view-mode-btn" onclick="toggleView('list')">
+                    <i class="bi bi-list"></i>
+                  </button>
+                </div>
+                <div class="products-sort">
+                  <select class="form-select">
+                    <option>Sort by: Latest</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Name: A to Z</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Products Grid -->
+          <div class="products-grid" id="productsGrid">
+            
+            <!-- Product 1 -->
+            <div class="item-card" onclick="location.href='product-details.html'">
+              <div class="item-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1587202372775-e229f172b044?w=400" alt="Desktop Computer">
+                <span class="item-badge">-18%</span>
+                <div class="item-quick-actions">
+                  <button class="quick-action-btn">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                  <button class="quick-action-btn">
+                    <i class="bi bi-bag-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="item-details">
+                <div class="item-category">Desktop Computers</div>
+                <h3 class="item-name">DUGONG Mid Level Desktop Computer</h3>
+                <p class="item-description">Silk and then blend polo with slick mock neck. Full sleeves for the win</p>
+                <div class="item-bottom">
+                  <div class="item-pricing">
+                    <div class="item-price">Rs 45,000</div>
+                    <div class="item-price-old">Rs 55,000</div>
+                  </div>
+                  <div class="item-actions">
+                    <button class="item-action-btn">
+                      <i class="bi bi-bag-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="item-card">
+              <div class="item-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1593640495253-23196b27a87f?w=400" alt="Apple iMac">
+                <span class="item-badge">Premium</span>
+                <div class="item-quick-actions">
+                  <button class="quick-action-btn">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                  <button class="quick-action-btn">
+                    <i class="bi bi-bag-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="item-details">
+                <div class="item-category">Desktop Computers</div>
+                <h3 class="item-name">Apple iMac 24-inch Desktop</h3>
+                <p class="item-description">Silk and then blend polo with slick mock neck. Full sleeves for the win</p>
+                <div class="item-bottom">
+                  <div class="item-pricing">
+                    <div class="item-price">Rs 1,25,000</div>
+                  </div>
+                  <div class="item-actions">
+                    <button class="item-action-btn">
+                      <i class="bi bi-heart"></i>
+                    </button>
+                    <button class="item-action-btn">
+                      <i class="bi bi-bag-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="item-card">
+              <div class="item-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1587202372583-49330a15584d?w=400" alt="Custom Gaming PC">
+                <span class="item-badge">-20%</span>
+                <div class="item-quick-actions">
+                  <button class="quick-action-btn">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                  <button class="quick-action-btn">
+                    <i class="bi bi-bag-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="item-details">
+                <div class="item-category">Desktop Computers</div>
+                <h3 class="item-name">Custom Gaming PC Build</h3>
+                <p class="item-description">Silk and then blend polo with slick mock neck. Full sleeves for the win</p>
+                <div class="item-bottom">
+                  <div class="item-pricing">
+                    <div class="item-price">Rs 72,000</div>
+                    <div class="item-price-old">Rs 90,000</div>
+                  </div>
+                  <div class="item-actions">
+                    <button class="item-action-btn">
+                      <i class="bi bi-heart"></i>
+                    </button>
+                    <button class="item-action-btn">
+                      <i class="bi bi-bag-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Pagination -->
+          <div class="products-pagination">
+            <nav aria-label="Products pagination">
+              <ul class="pagination">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <i class="bi bi-chevron-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // View Mode Toggle
+    function toggleView(mode) {
+      const grid = document.getElementById('productsGrid');
+      const buttons = document.querySelectorAll('.view-mode-btn');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.closest('.view-mode-btn').classList.add('active');
+      
+      if (mode === 'list') {
+        grid.classList.add('list-mode');
+      } else {
+        grid.classList.remove('list-mode');
+      }
+    }
+
+    // Filter functionality
+    document.querySelectorAll('.filter-item input[type="checkbox"]').forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        updateProductCount();
+      });
+    });
+
+    function updateProductCount() {
+      // Simulate filtering - in real implementation, this would filter products
+      const checkedFilters = document.querySelectorAll('.filter-item input[type="checkbox"]:checked').length;
+      console.log('Active filters:', checkedFilters);
+    }
+
+    // Price range slider
+    const priceSlider = document.querySelector('.price-range-slider input[type="range"]');
+    const maxPriceInput = document.querySelectorAll('.price-field input')[1];
+
+    if (priceSlider && maxPriceInput) {
+      priceSlider.addEventListener('input', function() {
+        maxPriceInput.value = this.value;
+      });
+
+      maxPriceInput.addEventListener('input', function() {
+        priceSlider.value = this.value;
+      });
+    }
+
+    // Apply filters button
+    document.querySelector('.filter-apply-btn').addEventListener('click', function() {
+      console.log('Filters applied');
+      // In real implementation, this would trigger API call to fetch filtered products
+    });
+
+    // Clear filters
+    document.querySelectorAll('.filter-header small').forEach(clearBtn => {
+      clearBtn.addEventListener('click', function() {
+        const filterGroup = this.closest('.filter-group');
+        filterGroup.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+          checkbox.checked = false;
+        });
+        updateProductCount();
+      });
+    });
+
+    // Add to wishlist
+    document.querySelectorAll('.quick-action-btn, .item-action-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const icon = this.querySelector('i');
+        if (icon.classList.contains('bi-heart')) {
+          icon.classList.toggle('bi-heart');
+          icon.classList.toggle('bi-heart-fill');
+          this.style.color = icon.classList.contains('bi-heart-fill') ? 'var(--accent-orange)' : '';
+        }
+      });
+    });
+
+    // Sort functionality
+    document.querySelector('.products-sort select').addEventListener('change', function() {
+      console.log('Sort by:', this.value);
+      // In real implementation, this would sort the products
+    });
+  </script>
+
+  <script>
+    // Category Navigation Toggle
+    document.addEventListener('DOMContentLoaded', function () {
+      const categoryNavItems = document.querySelectorAll('.jd-category-nav-item');
+      const categoryContents = document.querySelectorAll('.jd-category-content-section');
+
+      categoryNavItems.forEach((item, index) => {
+        item.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Remove active class from all nav items
+          categoryNavItems.forEach(nav => nav.classList.remove('active'));
+
+          // Add active class to clicked item
+          this.classList.add('active');
+
+          // Hide all content sections
+          categoryContents.forEach(content => content.classList.remove('active'));
+
+          // Show corresponding content section
+          if (categoryContents[index]) {
+            categoryContents[index].classList.add('active');
+          }
+        });
+      });
+
+      // Prevent dropdown from closing when clicking inside
+      const categoryMega = document.querySelector('.jd-category-mega');
+      if (categoryMega) {
+        categoryMega.addEventListener('click', function (e) {
+          e.stopPropagation();
+        });
+      }
+    });
+  </script>
+
+ <script>
+  const chatbot = document.getElementById("chatbot-box");
+  const toggleBtn = document.getElementById("chatbot-toggle");
+
+  toggleBtn.onclick = toggleChatbot;
+
+  function toggleChatbot() {
+    chatbot.style.display =
+      chatbot.style.display === "flex" ? "none" : "flex";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    const chat = document.getElementById("chatMessages");
+
+    chat.innerHTML += `<div class="user-msg">${msg}</div>`;
+    input.value = "";
+
+    setTimeout(() => {
+      chat.innerHTML += `<div class="bot-msg">I'm processing your request 🤖</div>`;
+      chat.scrollTop = chat.scrollHeight;
+    }, 600);
+  }
+</script>
+
+<script>
+  function toggleChatbot() {
+    const chatBox = document.getElementById("chatbot-box");
+    const label = document.querySelector(".chat-label");
+
+    chatBox.style.display =
+      chatBox.style.display === "flex" ? "none" : "flex";
+
+    if (label) label.style.display = "none";
+  }
+</script>
+
+  <script>
+  function closeChatLabel(e) {
+    e.stopPropagation(); // prevent chatbot opening
+    document.querySelector('.chat-label').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

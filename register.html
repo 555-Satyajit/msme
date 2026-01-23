@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    /* =========================
+       PAGE WRAPPER
+    ========================== */
+    .register-page-wrapper {
+      min-height: 100vh;
+      background: url("/public/images/loginin-bg.png") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, "Segoe UI";
+      padding: 20px;
+    }
+
+    /* CARD */
+    .register-card {
+      width: 92%;
+      max-width: 1100px;
+      height: 650px;
+      display: flex;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+
+      background-image: url("/public/images/login-left.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left center;
+      background-color: rgba(251, 251, 251);
+    }
+
+    .register-left {
+      width: 55%;
+    }
+
+    .register-right {
+      width: 45%;
+      padding: 55px 50px;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* =========================
+       DROPDOWN
+    ========================== */
+    .role-dropdown {
+      margin-bottom: 15px;
+    }
+
+    .role-dropdown .dropdown-toggle {
+      width: 100%;
+      padding: 10px 20px;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      color: #333;
+      font-size: 14px;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .role-dropdown .dropdown-toggle:hover,
+    .role-dropdown .dropdown-toggle:focus {
+      background: #f8f9fa;
+      border-color: #2563eb;
+    }
+
+    .role-dropdown .dropdown-menu {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .role-dropdown .dropdown-item {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    .role-dropdown .dropdown-item:hover {
+      background: #f0f7ff;
+      color: #2563eb;
+    }
+
+    .role-dropdown .dropdown-item.active {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    /* FORM */
+    .form-control {
+      border-radius: 14px;
+      padding-left: 44px;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+    }
+
+    .btn-register {
+      padding: 14px;
+      border-radius: 14px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .login-link {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .login-link a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* =========================
+       SOCIAL
+    ========================== */
+    .social-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      transition: 0.25s;
+      cursor: pointer;
+    }
+
+    .social-icon:hover {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .register-card {
+        height: auto;
+        background-image: none;
+      }
+      .register-left {
+        display: none;
+      }
+      .register-right {
+        width: 100%;
+        padding: 40px 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="register-page-wrapper">
+<div class="register-card">
+
+  <!-- LEFT VISUAL -->
+  <div class="register-left"></div>
+
+  <!-- RIGHT FORM -->
+  <div class="register-right">
+
+    <h2 class="fw-bold mb-1 text-center">Create Account</h2>
+    <p class="text-muted text-center mb-4">Register to get started</p>
+
+    <!-- ROLE DROPDOWN -->
+    <div class="role-dropdown">
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="roleDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <span id="selectedRole">Select Registration Type</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="roleDropdown">
+          <li><a class="dropdown-item" href="#" data-role="user">User</a></li>
+          <li><a class="dropdown-item" href="#" data-role="b2c">B2C</a></li>
+          <li><a class="dropdown-item" href="#" data-role="b2b">B2B</a></li>
+          <li><a class="dropdown-item" href="#" data-role="b2g">B2G</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- NAME -->
+    <div class="position-relative mb-3">
+      <i class="bi bi-person input-icon"></i>
+      <input type="text" class="form-control" placeholder="Full Name">
+    </div>
+
+    <!-- EMAIL -->
+    <div class="position-relative mb-3">
+      <i class="bi bi-envelope input-icon"></i>
+      <input type="email" class="form-control" id="emailField" placeholder="Email Address">
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="position-relative mb-3">
+      <i class="bi bi-lock input-icon"></i>
+      <input type="password" class="form-control" placeholder="Password">
+    </div>
+
+    <!-- CONFIRM PASSWORD -->
+    <div class="position-relative mb-3">
+      <i class="bi bi-lock-fill input-icon"></i>
+      <input type="password" class="form-control" placeholder="Confirm Password">
+    </div>
+
+    <!-- B2C DOCUMENTS -->
+    <div id="b2cDocs" class="d-none">
+
+      <div class="position-relative mb-3">
+        <i class="bi bi-shop input-icon"></i>
+        <input type="text" class="form-control" placeholder="Business Name">
+      </div>
+
+      <div class="position-relative mb-3">
+        <i class="bi bi-file-earmark-text input-icon"></i>
+        <input type="file" class="form-control">
+      </div>
+
+      <div class="position-relative mb-3">
+        <i class="bi bi-file-earmark-check input-icon"></i>
+        <input type="file" class="form-control">
+      </div>
+
+    </div>
+
+    <!-- B2B DOCUMENTS -->
+    <div id="b2bDocs" class="d-none">
+
+      <div class="position-relative mb-3">
+        <i class="bi bi-building input-icon"></i>
+        <input type="text" class="form-control" placeholder="Company Name">
+      </div>
+
+      <div class="position-relative mb-3">
+        <i class="bi bi-file-earmark-text input-icon"></i>
+        <input type="file" class="form-control">
+      </div>
+
+      <div class="position-relative mb-3">
+        <i class="bi bi-file-earmark-lock input-icon"></i>
+        <input type="file" class="form-control">
+      </div>
+
+    </div>
+
+    <!-- B2G DOCUMENTS -->
+    <div id="b2gDocs" class="d-none">
+
+      <div class="position-relative mb-3">
+        <i class="bi bi-person-badge input-icon"></i>
+        <input type="text" class="form-control" placeholder="Employee ID">
+      </div>
+
+      <div class="position-relative mb-3">
+        <i class="bi bi-building input-icon"></i>
+        <input type="text" class="form-control" placeholder="Department">
+      </div>
+
+      <div class="position-relative mb-3">
+        <i class="bi bi-file-earmark-check input-icon"></i>
+        <input type="file" class="form-control">
+      </div>
+
+    </div>
+
+    <button class="btn-register w-100 mb-3">Register</button>
+
+    <div class="login-link mb-4">
+      Already have an account?
+      <a href="login.html">Sign in</a>
+    </div>
+
+    <!-- SOCIAL LOGIN (Only for User) -->
+    <div id="socialLogin" class="d-none">
+      <div class="text-center text-muted small mb-3">OR REGISTER WITH</div>
+
+      <div class="d-flex justify-content-center gap-3">
+        <div class="social-icon"><i class="bi bi-facebook"></i></div>
+        <div class="social-icon"><i class="bi bi-google"></i></div>
+        <div class="social-icon"><i class="bi bi-linkedin"></i></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const dropdownItems = document.querySelectorAll('.dropdown-item');
+  const selectedRole = document.getElementById('selectedRole');
+  const b2cDocs = document.getElementById('b2cDocs');
+  const b2bDocs = document.getElementById('b2bDocs');
+  const b2gDocs = document.getElementById('b2gDocs');
+  const emailField = document.getElementById('emailField');
+  const socialLogin = document.getElementById('socialLogin');
+
+  dropdownItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Update selected text
+      const role = item.dataset.role;
+      const roleText = item.textContent;
+      selectedRole.textContent = roleText;
+
+      // Remove active class from all items
+      dropdownItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+
+      // Reset all document sections and social login
+      b2cDocs.classList.add('d-none');
+      b2bDocs.classList.add('d-none');
+      b2gDocs.classList.add('d-none');
+      socialLogin.classList.add('d-none');
+
+      // Update based on role
+      if (role === 'user') {
+        emailField.placeholder = 'Email Address';
+        socialLogin.classList.remove('d-none');
+      }
+      else if (role === 'b2c') {
+        emailField.placeholder = 'Business Email';
+        b2cDocs.classList.remove('d-none');
+      }
+      else if (role === 'b2b') {
+        emailField.placeholder = 'Business Email';
+        b2bDocs.classList.remove('d-none');
+      }
+      else if (role === 'b2g') {
+        emailField.placeholder = 'Official Email';
+        b2gDocs.classList.remove('d-none');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

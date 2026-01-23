@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    /* =========================
+       PAGE WRAPPER
+    ========================== */
+    .login-page-wrapper {
+      min-height: 100vh;
+      background: url("/public/images/loginin-bg.png") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI";
+      padding: 20px;
+    }
+
+    /* =========================
+       LOGIN CARD (REFERENCE STYLE)
+    ========================== */
+    .login-card {
+      width: 92%;
+      max-width: 1100px;
+      height: 620px;
+      display: flex;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+      background-image: url("/public/images/login-left.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left center;
+      background-color: rgba(251, 251, 251);
+    }
+
+    /* LEFT VISUAL SPACE */
+    .login-left {
+      width: 55%;
+    }
+
+    /* RIGHT FORM PANEL */
+    .login-right {
+      width: 45%;
+      padding: 60px 55px;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* =========================
+       DROPDOWN
+    ========================== */
+    .role-dropdown {
+      margin-bottom: 15px;
+    }
+
+    .role-dropdown .dropdown-toggle {
+      width: 100%;
+      padding: 10px 20px;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      color: #333;
+      font-size: 14px;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .role-dropdown .dropdown-toggle:hover,
+    .role-dropdown .dropdown-toggle:focus {
+      background: #f8f9fa;
+      border-color: #2563eb;
+    }
+
+    .role-dropdown .dropdown-menu {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .role-dropdown .dropdown-item {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    .role-dropdown .dropdown-item:hover {
+      background: #f0f7ff;
+      color: #2563eb;
+    }
+
+    .role-dropdown .dropdown-item.active {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    /* =========================
+       FORM
+    ========================== */
+    .form-control {
+      border-radius: 14px;
+      padding-left: 44px;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+    }
+
+    .forgot {
+      text-align: right;
+      font-size: 0.85rem;
+    }
+
+    .forgot a {
+      text-decoration: none;
+      color: #2563eb;
+    }
+
+    .btn-login {
+      padding: 14px;
+      border-radius: 14px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .signup-text {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .signup-text a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* =========================
+       SOCIAL
+    ========================== */
+    .social-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      transition: 0.25s;
+      cursor: pointer;
+    }
+
+    .social-icon:hover {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+    @media (max-width: 768px) {
+      .login-card {
+        height: auto;
+        background-image: none;
+      }
+      .login-left {
+        display: none;
+      }
+      .login-right {
+        width: 100%;
+        padding: 40px 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="login-page-wrapper">
+<div class="login-card">
+
+  <!-- LEFT IMAGE SPACE -->
+  <div class="login-left"></div>
+
+  <!-- RIGHT FORM -->
+  <div class="login-right">
+
+    <h2 class="fw-bold mb-1 text-center">Welcome!</h2>
+    <p class="text-muted text-center mb-4">Sign in to your account</p>
+
+    <!-- ROLE DROPDOWN -->
+    <div class="role-dropdown">
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="roleDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <span id="selectedRole">Select Login Type</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="roleDropdown">
+          <li><a class="dropdown-item" href="#" data-role="user">User</a></li>
+          <li><a class="dropdown-item" href="#" data-role="b2b">B2B</a></li>
+          <li><a class="dropdown-item" href="#" data-role="b2c">B2C</a></li>
+          <li><a class="dropdown-item" href="#" data-role="b2g">B2G</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- USERNAME -->
+    <div class="position-relative mb-3">
+      <i class="bi bi-envelope input-icon"></i>
+      <input type="email" class="form-control" id="username" placeholder="Email Address">
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="position-relative mb-3">
+      <i class="bi bi-lock input-icon"></i>
+      <input type="password" class="form-control" placeholder="Password">
+    </div>
+
+    <!-- B2G DEPARTMENT -->
+    <div class="position-relative mb-3 d-none" id="departmentGroup">
+      <i class="bi bi-building input-icon"></i>
+      <input type="text" class="form-control" placeholder="Department">
+    </div>
+
+    <div class="forgot mb-3">
+      <a href="#">Forgot Password?</a>
+    </div>
+
+    <button class="btn-login w-100 mb-3" onclick="location.href='user-dashboard.html'">Sign In</button>
+
+    <div class="signup-text mb-4">
+      Don't have an account? <a href="register.html">Sign up</a>
+    </div>
+
+    <div class="text-center text-muted small mb-3">OR LOGIN WITH</div>
+
+    <div class="d-flex justify-content-center gap-3">
+      <div class="social-icon"><i class="bi bi-facebook"></i></div>
+      <div class="social-icon"><i class="bi bi-google"></i></div>
+      <div class="social-icon"><i class="bi bi-linkedin"></i></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- DROPDOWN SCRIPT -->
+<script>
+  const dropdownItems = document.querySelectorAll('.dropdown-item');
+  const selectedRole = document.getElementById('selectedRole');
+  const username = document.getElementById('username');
+  const department = document.getElementById('departmentGroup');
+
+  dropdownItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Update selected text
+      const role = item.dataset.role;
+      const roleText = item.textContent;
+      selectedRole.textContent = roleText;
+
+      // Remove active class from all items
+      dropdownItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+
+      // Reset department visibility
+      department.classList.add('d-none');
+
+      // Update placeholder based on role
+      if (role === 'b2g') {
+        username.placeholder = 'Employee ID';
+        department.classList.remove('d-none');
+      } else if (role === 'b2b') {
+        username.placeholder = 'Business Email';
+      } else {
+        username.placeholder = 'Email Address';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

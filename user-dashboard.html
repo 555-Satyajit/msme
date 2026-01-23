@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sticky Navbar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="public/css/style.css">
+  <!-- Owl Carousel CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    rel="stylesheet">
+</head>
+
+<!-- FLOATING CHAT BUTTON -->
+<div id="chatbot-toggle">
+  <i class="bi bi-robot"></i>
+
+  <span class="chat-label">
+    Chat Now
+    <button class="chat-label-close" onclick="closeChatLabel(event)">✕</button>
+  </span>
+</div>
+
+<!-- CHATBOT WINDOW -->
+<div id="chatbot-box">
+  <div class="chatbot-header">
+    <span>AI Assistant</span>
+    <button class="chat-close" onclick="toggleChatbot()">✕</button>
+  </div>
+
+ <div class="chatbot-messages" id="chatMessages">
+
+  <div class="bot-msg">
+    Hi 👋 I’m your AI Assistant.<br>
+    How can I help you today?
+  </div>
+
+  <div class="bot-options">
+    <button class="bot-option-btn">📦 Order & Delivery Support</button>
+    <button class="bot-option-btn">💳 Payment & Billing Issues</button>
+    <button class="bot-option-btn">🛠️ Product Information</button>
+    <button class="bot-option-btn">📞 Talk to Support</button>
+  </div>
+
+</div>
+
+
+  <div class="chatbot-input">
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">
+      <i class="bi bi-send"></i>
+    </button>
+  </div>
+</div>
+
+
+
+<body>
+
+  <!-- ================= STICKY NAVBAR ================= -->
+     <header class="msme-header ">
+    <!-- MIDDLE BRAND BAR -->
+    <div class="site-identity-bar">
+      <div class="container d-flex justify-content-between align-items-center">
+
+        <!-- LEFT: SITE BRAND -->
+        <div class="site-brand d-flex align-items-center gap-3">
+          <img src="https://msme.gov.in/sites/all/themes/msme/images/MOMSME-Header.png" alt="Site Logo"
+            class="site-brand-logo" />
+
+          <div class="site-brand-text">
+            <!-- <h5>O-Chip</h5>
+            <small>Government of Odisha</small> -->
+          </div>
+        </div>
+
+        <!-- RIGHT: LEADERS -->
+        <div class="site-leaders d-flex align-items-center gap-5">
+
+          <!-- LEADER 1 -->
+          <div class="site-leader-item d-flex align-items-center gap-3">
+
+            <!-- TEXT (STACKED) -->
+            <div class="site-leader-text">
+              <strong>Shri Narendra Modi</strong>
+              <small>Hon’ble Prime Minister of India</small>
+            </div>
+
+            <!-- IMAGE -->
+            <img
+              src="https://ochipback.demosonydig.in/storage/ochip_dignitaries/7b6wNoGMoC9kbUMTRZuaWg1UeCUvOFscpGH9tCFm.jpg"
+              alt="Prime Minister" class="site-leader-photo" />
+          </div>
+
+          <!-- LEADER 2 -->
+          <div class="site-leader-item d-flex align-items-center gap-3">
+
+            <!-- TEXT (STACKED) -->
+            <div class="site-leader-text">
+              <strong>Shri Mohan Charan Majhi</strong>
+              <small>Hon’ble Chief Minister, Odisha</small>
+            </div>
+
+            <!-- IMAGE -->
+            <img
+              src="https://ochipback.demosonydig.in/storage/ochip_dignitaries/on7SRQs5uT1AjdeF7oXyfFZdCFgVLBm6DRxhnKlK.png"
+              alt="Chief Minister" class="site-leader-photo" />
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </header>
+  <header class="jd-header">
+    <div class="container-fluid jd-inner">
+
+      <!-- LOGO -->
+      <div class="jd-logo" style="cursor: pointer;" onclick="location.href='user-dashboard.html'">MSME</div>
+
+      <!-- LOCATION -->
+      <div class="dropdown">
+        <button class="jd-location dropdown-toggle" data-bs-toggle="dropdown">
+          <i class="bi bi-geo-alt"></i>
+          <span>Mumbai</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item">Delhi</a></li>
+          <li><a class="dropdown-item">Bangalore</a></li>
+          <li><a class="dropdown-item">Chennai</a></li>
+        </ul>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="jd-search">
+        <input type="text" placeholder="Search for Spa & Salons">
+        <div class="jd-search-actions">
+          <i class="bi bi-mic-fill jd-mic"></i>
+          <button class="jd-search-btn">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+      <!-- CATEGORY DROPDOWN -->
+      <!-- CATEGORY DROPDOWN -->
+      <div class="jd-category-wrapper">
+        <button class="jd-category-btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+          <span>Categories</span>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+
+        <div class="dropdown-menu jd-category-mega">
+          <div class="jd-category-mega-inner">
+
+            <!-- Left Navigation -->
+            <div class="jd-category-nav">
+              <div class="jd-category-nav-item active" data-tab="products">
+                Products
+                <i class="bi bi-chevron-right"></i>
+              </div>
+              <div class="jd-category-nav-item" data-tab="services">
+                Services
+                <i class="bi bi-chevron-right"></i>
+              </div>
+              <div class="jd-category-nav-item" data-tab="all">
+                All Categories
+                <i class="bi bi-chevron-right"></i>
+              </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="jd-category-content">
+
+              <!-- PRODUCTS SECTION -->
+              <div class="jd-category-content-section active">
+                <div class="jd-category-section">
+                  <h3 class="jd-category-section-title">Popular Product Categories</h3>
+                  <div class="jd-category-grid">
+
+                    <div class="jd-category-column">
+                      <h4>IT Products</h4>
+                      <div class="jd-category-links">
+                        <a href="product-listing.html">Desktop Computers</a>
+                        <a href="#">Laptop Notebook</a>
+                        <a href="#">Computer Printers</a>
+                        <a href="#">Tablet Computers</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Automobiles</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Buses</a>
+                        <a href="#">Tractors</a>
+                        <a href="#">Cars</a>
+                        <a href="#">Utility Vehicles</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Furniture</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Class Room Desking</a>
+                        <a href="#">Executive Table</a>
+                        <a href="#">Revolving Chair</a>
+                        <a href="#">Movable File Storage System</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Medical Products</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Alcohol Based Hand Sanitizer</a>
+                        <a href="#">Surgical Gloves as per IS 4148</a>
+                        <a href="#">Disposable Syringes as per IS 10258</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Stationery Items</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Diaries Printed Plain Register</a>
+                        <a href="#">Gel Pen</a>
+                        <a href="#">Maplitho Paper</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Electrical Appliances</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Led Luminaire</a>
+                        <a href="#">Molded Case Circuit Breakers (MCCB)</a>
+                        <a href="#">Telecommunication Cable</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Electronic Equipments</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Television TV</a>
+                        <a href="#">Domestic Refrigerators</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Textile Products</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Handloom Cotton Bed Sheets</a>
+                        <a href="#">Cotton Towels as per IS 7056</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Pipes and Fittings</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Steel Tubes, Tubulars And Fittings</a>
+                        <a href="#">Commercial CPVC Pipe Fittings</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="jd-browse-all-btn">
+                  View All Products →
+                </div>
+              </div>
+
+              <!-- SERVICES SECTION -->
+              <div class="jd-category-content-section">
+                <div class="jd-category-section">
+                  <h3 class="jd-category-section-title">Trending Services</h3>
+                  <div class="jd-category-grid">
+
+                    <div class="jd-category-column">
+                      <h4>Manpower Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Manpower Outsourcing - Minimum wage</a>
+                        <a href="#">Manpower Outsourcing - Fixed Remuneration</a>
+                        <a href="#">Security Manpower Service (Version 2.0)</a>
+                        <a href="#">Short Term Cab & Taxi Hiring Services</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Printing Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Paper-based Printing Services</a>
+                        <a href="#">Non Paper Printing Services - Area Based</a>
+                        <a href="#">Non Paper Printing Services - Quantity Based</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Transport Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Goods Transport – Per Trip based</a>
+                        <a href="#">Goods Transport – Per KM Based</a>
+                        <a href="#">Bus Hiring Service - Short Term</a>
+                        <a href="#">Vehicle Hiring Service - Per Vehicle-Day</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Catering Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Catering service (Event Based)</a>
+                        <a href="#">Catering service (Duration Based)</a>
+                        <a href="#">Catering Service per Packet based</a>
+                        <a href="#">Monthly Basic Cab & Taxi Hiring Services</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Maintenance Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Annual Maintenance - Desktops, Laptops</a>
+                        <a href="#">Annual Maintenance - Photocopier Machine</a>
+                        <a href="#">Annual Maintenance - AIR CONDITIONER</a>
+                        <a href="#">Cleaning, Sanitation and Disinfection</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Hiring Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Hiring of Sanitation Service</a>
+                        <a href="#">Hiring of Mortuary Van</a>
+                        <a href="#">Hiring of Tea/Coffee Vending Machine</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="jd-category-section">
+                  <h3 class="jd-category-section-title">Emerging Services</h3>
+                  <div class="jd-category-grid">
+
+                    <div class="jd-category-column">
+                      <h4>Business Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Gift Vouchers Service</a>
+                        <a href="#">Missed Call and Keyword Alert Service</a>
+                        <a href="#">Facility Management - Manpower based</a>
+                        <a href="#">Canteen Service - Percentage Model</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Technical Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Data Recovery and Data Wiping Service</a>
+                        <a href="#">Mine Development & Operations - Revenue Sharing</a>
+                        <a href="#">Record Management - Storage Area Based</a>
+                      </div>
+                    </div>
+
+                    <div class="jd-category-column">
+                      <h4>Specialized Services</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Custom Bid for Services</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="jd-browse-all-btn">
+                  View All Services →
+                </div>
+              </div>
+
+              <!-- ALL CATEGORIES SECTION -->
+              <div class="jd-category-content-section">
+                <div class="jd-category-section">
+                  <h3 class="jd-category-section-title">All Categories</h3>
+                  <div class="jd-category-grid">
+
+                    <div class="jd-category-column">
+                      <h4>Quick Links</h4>
+                      <div class="jd-category-links">
+                        <a href="#">Browse All Products</a>
+                        <a href="#">Browse All Services</a>
+                        <a href="#">Browse All Brands</a>
+                        <a href="#">BOQ Based Bidding</a>
+                        <a href="#">Enhanced Bunching - Services</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+         <a href="chatbot.html" class="nav-link ai-chat-btn"">
+      <i class="bi bi-robot"></i> ASk AI
+    </a>
+
+
+      <!-- RIGHT ICONS -->
+      <div class="jd-actions">
+
+        <i class="bi bi-bell jd-icon"></i>
+        <i class="bi bi-cart jd-icon"></i>
+
+        <!-- LANGUAGE -->
+        <div class="dropdown">
+          <i class="bi bi-translate jd-icon dropdown-toggle" data-bs-toggle="dropdown"></i>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item">English</a></li>
+            <li><a class="dropdown-item">Hindi</a></li>
+            <li><a class="dropdown-item">Odia</a></li>
+          </ul>
+        </div>
+
+        <!-- PROFILE -->
+        <div class="dropdown">
+          <i class="bi bi-person-circle jd-icon dropdown-toggle" data-bs-toggle="dropdown"></i>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item">Profile</a></li>
+            <li><a class="dropdown-item">Orders</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item text-danger">Logout</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+
+
+
+  <div class="container-fluid px-4">
+    <!-- Hero Carousel -->
+    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <!-- Slide 1 - Flights -->
+        <div class="carousel-item active">
+          <div class="hero-slide"
+            style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=80');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <h2>Time to Fly at Lowest Airfares</h2>
+              <p>Discover amazing deals on flights worldwide</p>
+              <button class="hero-btn">Book Now</button>
+              <p class="powered-by">Powered by EaseMyTrip</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 - B2B -->
+        <div class="carousel-item">
+          <div class="hero-slide"
+            style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=80');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <h2>B2B Solutions</h2>
+              <p>Quick Quotes for Your Business Needs</p>
+              <button class="hero-btn">Explore</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 - Repairs & Services -->
+        <div class="carousel-item">
+          <div class="hero-slide"
+            style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <h2>Repairs & Services</h2>
+              <p>Get Nearest Vendor in Minutes</p>
+              <button class="hero-btn">Find Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 - Real Estate -->
+        <div class="carousel-item">
+          <div class="hero-slide"
+            style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <h2>Real Estate</h2>
+              <p>Connect with Finest Agents</p>
+              <button class="hero-btn">Explore</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 - Doctors -->
+        <div class="carousel-item">
+          <div class="hero-slide"
+            style="background-image: url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1200&q=80');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <h2>Healthcare Services</h2>
+              <p>Book Appointments with Top Doctors</p>
+              <button class="hero-btn">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <!-- Category Section -->
+    <div class="category-section">
+      <div class="category-grid">
+        <!-- Row 1 -->
+        <a href="product-listing.html" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/restaurant.png" alt="Restaurants">
+          </div>
+          <p class="category-name">Restaurants</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/hotel.png" alt="Hotels">
+          </div>
+          <p class="category-name">Hotels</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/spa.png" alt="Beauty Spa">
+          </div>
+          <p class="category-name">Beauty Spa</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/interior.png" alt="Home Decor">
+          </div>
+          <p class="category-name">Home Decor</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/wedding.png" alt="Wedding Planning">
+          </div>
+          <p class="category-name">Wedding Planning</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/education.png" alt="Education">
+          </div>
+          <p class="category-name">Education</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/crane.png" alt="Rent & Hire">
+          </div>
+          <p class="category-name">Rent & Hire</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/hospital.png" alt="Hospitals">
+          </div>
+          <p class="category-name">Hospitals</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/worker.png" alt="Contractors">
+          </div>
+          <p class="category-name">Contractors</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/pet.png" alt="Pet Shops">
+          </div>
+          <p class="category-name">Pet Shops</p>
+        </a>
+
+        <!-- Row 2 -->
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/bunk-bed.png" alt="PG/Hostels">
+          </div>
+          <p class="category-name">PG/Hostels</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/real-estate.png" alt="Estate Agent">
+          </div>
+          <p class="category-name">Estate Agent</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/tooth.png" alt="Dentists">
+          </div>
+          <p class="category-name">Dentists</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/gym.png" alt="Gym">
+          </div>
+          <p class="category-name">Gym</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/money.png" alt="Loans">
+          </div>
+          <p class="category-name">Loans</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/party.png" alt="Event Organisers">
+          </div>
+          <p class="category-name">Event Organisers</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/driving-school.png" alt="Driving Schools">
+          </div>
+          <p class="category-name">Driving Schools</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/truck.png" alt="Packers & Movers">
+          </div>
+          <p class="category-name">Packers & Movers</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/delivery.png" alt="Courier Service">
+          </div>
+          <p class="category-name">Courier Service</p>
+        </a>
+        <a href="#" class="category-item">
+          <div class="category-icon-box">
+            <img src="https://img.icons8.com/color/96/menu.png" alt="Popular Categories">
+          </div>
+          <p class="category-name">Popular Categories</p>
+        </a>
+      </div>
+    </div>
+
+
+    <div class="services-section">
+      <div class="container">
+        <div class="row">
+          <!-- Wedding Requisites -->
+          <div class="col-lg-6 col-md-12">
+            <div class="service-category-card">
+              <h2 class="category-title">Wedding Requisites</h2>
+              <div class="service-items-grid">
+                <a href="#" class="service-item">
+                  <img src="https://images.unsplash.com/photo-1519167758481-83f29da8ae8d?w=400&q=80" alt="Banquet Halls"
+                    class="service-image">
+                  <p class="service-name">Banquet Halls</p>
+                </a>
+                <a href="#" class="service-item">
+                  <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80"
+                    alt="Bridal Requisite" class="service-image">
+                  <p class="service-name">Bridal Requisite</p>
+                </a>
+                <a href="#" class="service-item">
+                  <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=400&q=80" alt="Caterers"
+                    class="service-image">
+                  <p class="service-name">Caterers</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Beauty & Spa -->
+          <div class="col-lg-6 col-md-12">
+            <div class="service-category-card">
+              <h2 class="category-title">Beauty & Spa</h2>
+              <div class="service-items-grid">
+                <a href="#" class="service-item">
+                  <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&q=80" alt="Beauty Parlours"
+                    class="service-image">
+                  <p class="service-name">Beauty Parlours</p>
+                </a>
+                <a href="#" class="service-item">
+                  <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&q=80" alt="Spa & Massages"
+                    class="service-image">
+                  <p class="service-name">Spa & Massages</p>
+                </a>
+                <a href="#" class="service-item">
+                  <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&q=80" alt="Salons"
+                    class="service-image">
+                  <p class="service-name">Salons</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Repairs & Services -->
+          <div class="col-lg-6 col-md-12">
+            <div class="service-category-card">
+              <h2 class="category-title">Repairs & Services</h2>
+              <div class="service-items-grid">
+                <a href="#" class="service-item">
+                  <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80" alt="AC Service"
+                    class="service-image">
+                  <p class="service-name">AC Service</p>
+                </a>
+                <a href="#" class="service-item">
+                  <img src="https://images.unsplash.com/photo-1632823469850-1b4942d5d843?w=400&q=80" alt="Car Service"
+                    class="service-image">
+                  <p class="service-name">Car Service</p>
+                </a>
+                <a href="#" class="service-item">
+                  <img src="https://images.unsplash.com/photo-1571333250630-f0230c320b6d?w=400&q=80" alt="Bike Service"
+                    class="service-image">
+                  <p class="service-name">Bike Service</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Daily Needs -->
+          <div class="col-lg-6 col-md-12">
+            <div class="service-category-card">
+              <h2 class="category-title">Daily Needs</h2>
+              <div class="service-items-grid">
+                <a href="#" class="service-item">
+                  <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&q=80" alt="Movies"
+                    class="service-image">
+                  <p class="service-name">Movies</p>
+                </a>
+                <a href="#" class="service-item">
+                  <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&q=80" alt="Grocery"
+                    class="service-image">
+                  <p class="service-name">Grocery</p>
+                </a>
+                <a href="#" class="service-item">
+                  <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=400&q=80" alt="Electricians"
+                    class="service-image">
+                  <p class="service-name">Electricians</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trending Searches Section Start -->
+    <section class="trending-searches-section">
+      <div class="trending-container">
+        <div class="trending-header">
+          <h2 class="trending-title">
+            Trending Searches Near You
+            <span class="new-badge">NEW</span>
+          </h2>
+          <p class="trending-subtitle">Stay updated with the latest local trends.</p>
+        </div>
+
+        <div class="trending-carousel-wrapper">
+          <div class="owl-carousel owl-theme trending-carousel">
+            <!-- Card 1: Book Shops -->
+            <div class="trending-item">
+              <div class="trending-card">
+                <div class="card-image-wrapper">
+                  <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=300&h=300&fit=crop"
+                    alt="Book Shops" class="card-image">
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Book Shops</h3>
+                  <a href="#" class="card-explore-link">Explore</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Coffee Shops -->
+            <div class="trending-item">
+              <div class="trending-card">
+                <div class="card-image-wrapper">
+                  <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=300&h=300&fit=crop"
+                    alt="Coffee Shops" class="card-image">
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Coffee Shops</h3>
+                  <a href="#" class="card-explore-link">Explore</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Dance Classes -->
+            <div class="trending-item">
+              <div class="trending-card">
+                <div class="card-image-wrapper">
+                  <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=300&h=300&fit=crop"
+                    alt="Dance Classes" class="card-image">
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Dance Classes</h3>
+                  <a href="#" class="card-explore-link">Explore</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Physiotherapists -->
+            <div class="trending-item">
+              <div class="trending-card">
+                <div class="card-image-wrapper">
+                  <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=300&h=300&fit=crop"
+                    alt="Physiotherapists" class="card-image">
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Physiotherapists</h3>
+                  <a href="#" class="card-explore-link">Explore</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5: Yoga Studios -->
+            <div class="trending-item">
+              <div class="trending-card">
+                <div class="card-image-wrapper">
+                  <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300&h=300&fit=crop"
+                    alt="Yoga Studios" class="card-image">
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Yoga Studios</h3>
+                  <a href="#" class="card-explore-link">Explore</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6: Bakeries -->
+            <div class="trending-item">
+              <div class="trending-card">
+                <div class="card-image-wrapper">
+                  <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=300&h=300&fit=crop"
+                    alt="Bakeries" class="card-image">
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Bakeries</h3>
+                  <a href="#" class="card-explore-link">Explore</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Trending Searches Section End -->
+
+    <section class="popular-service py-5">
+      <div class="container">
+        <div class="popular-service-inner">
+          <!-- HEADER -->
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold mb-0" style="color: var(--text-primary);">
+              Popular Searches
+            </h2>
+          </div>
+
+          <!-- Owl Carousel -->
+          <div class="owl-carousel owl-theme popular-service-carousel">
+            <div class="item">
+              <div class="card">
+                <img src="public/images/ChatGPT Image Jan 15, 2026, 12_13_12 PM.png" class="card__image" alt="" />
+                <div class="card__overlay">
+                  <div class="card__header">
+                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                      <path />
+                    </svg>
+                    <img src="public/images/ChatGPT Image Jan 15, 2026, 12_13_12 PM.png" alt="">
+                    <div class="card__header-text">
+                      <h3 class="card__title" style="color: var(--primary-blue)">Driver</h3>
+                      <span class="card__status"><i class="fas fa-map-marker-alt"></i> Patia, Bhubaneswar</span>
+                    </div>
+                  </div>
+                  <p class="card__description"><a href="#" class="inquire">Enquire Now</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="card">
+                <img src="public/images/ChatGPT Image Jan 15, 2026, 12_13_12 PM.png" class="card__image" alt="" />
+                <div class="card__overlay">
+                  <div class="card__header">
+                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                      <path />
+                    </svg>
+                    <img src="public/images/ChatGPT Image Jan 15, 2026, 12_13_12 PM.png" alt="">
+                    <div class="card__header-text">
+                      <h3 class="card__title" style="color: var(--primary-blue)">Nurse</h3>
+                      <span class="card__status"><i class="fas fa-map-marker-alt"></i> Patia, Bhubaneswar</span>
+                    </div>
+                  </div>
+                  <p class="card__description"><a href="#" class="inquire">Enquire Now</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="card">
+                <img src="public/images/ChatGPT Image Jan 15, 2026, 12_13_12 PM.png" class="card__image" alt="" />
+                <div class="card__overlay">
+                  <div class="card__header">
+                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                      <path />
+                    </svg>
+                    <img src="public/images/ChatGPT Image Jan 15, 2026, 12_13_12 PM.png" alt="">
+                    <div class="card__header-text">
+                      <h3 class="card__title" style="color: var(--primary-blue)">Beauty Parlor</h3>
+                      <span class="card__status"><i class="fas fa-map-marker-alt"></i> Patia, Bhubaneswar</span>
+                    </div>
+                  </div>
+                  <p class="card__description"><a href="#" class="inquire">Enquire Now</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="card">
+                <img src="public/images/ChatGPT Image Jan 15, 2026, 12_13_12 PM.png" class="card__image" alt="" />
+                <div class="card__overlay">
+                  <div class="card__header">
+                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                      <path />
+                    </svg>
+                    <img src="public/images/ChatGPT Image Jan 15, 2026, 12_13_12 PM.png" alt="">
+                    <div class="card__header-text">
+                      <h3 class="card__title" style="color: var(--primary-blue)">Electrician</h3>
+                      <span class="card__status"><i class="fas fa-map-marker-alt"></i> Patia, Bhubaneswar</span>
+                    </div>
+                  </div>
+                  <p class="card__description"><a href="#" class="inquire">Enquire Now</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="card">
+                <img src="public/images/ChatGPT Image Jan 15, 2026, 12_13_12 PM.png" class="card__image" alt="" />
+                <div class="card__overlay">
+                  <div class="card__header">
+                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                      <path />
+                    </svg>
+                    <img src="public/images/ChatGPT Image Jan 15, 2026, 12_13_12 PM.png" alt="">
+                    <div class="card__header-text">
+                      <h3 class="card__title" style="color: var(--primary-blue)">Plumber</h3>
+                      <span class="card__status"><i class="fas fa-map-marker-alt"></i> Patia, Bhubaneswar</span>
+                    </div>
+                  </div>
+                  <p class="card__description"><a href="#" class="inquire">Enquire Now</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="card">
+                <img src="public/images/ChatGPT Image Jan 15, 2026, 12_13_12 PM.png" class="card__image" alt="" />
+                <div class="card__overlay">
+                  <div class="card__header">
+                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                      <path />
+                    </svg>
+                    <img src="public/images/ChatGPT Image Jan 15, 2026, 12_13_12 PM.png" alt="">
+                    <div class="card__header-text">
+                      <h3 class="card__title" style="color: var(--primary-blue)">Carpenter</h3>
+                      <span class="card__status"><i class="fas fa-map-marker-alt"></i> Patia, Bhubaneswar</span>
+                    </div>
+                  </div>
+                  <p class="card__description"><a href="#" class="inquire">Enquire Now</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="success-story-section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <h2 class="section-title">Success Stories</h2>
+          <a href="#" class="view-more-link">View More</a>
+        </div>
+
+        <!-- Stories Grid -->
+        <div class="row g-4">
+          <!-- Story Card 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="story-card">
+              <div class="story-card-header">
+                <div class="business-info">
+                  <h3>Tech Solutions</h3>
+                  <p class="business-location">Bhubaneswar, Odisha</p>
+                </div>
+                <button class="whatsapp-btn">
+                  <i class="fab fa-whatsapp"></i>
+                  WhatsApp
+                </button>
+              </div>
+
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Tech Solutions"
+                class="story-card-image">
+
+              <div class="reviewer-info">
+                <img src="https://i.pravatar.cc/150?img=12" alt="Rajesh Kumar" class="reviewer-avatar">
+                <div class="reviewer-details">
+                  <h4>Rajesh Kumar</h4>
+                  <p class="reviewer-action">Wrote a review</p>
+                </div>
+              </div>
+
+              <div class="story-rating">
+                <div class="stars">★★★★★</div>
+              </div>
+
+              <div class="story-review">
+                <p class="review-text">
+                  Amazing service! They helped us grow our business from 5 employees to 50 in just 2 years. Their
+                  digital marketing strategies are top-notch and the support team is always available. Highly
+                  recommended for any startup looking to scale.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story Card 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="story-card">
+              <div class="story-card-header">
+                <div class="business-info">
+                  <h3>Green Foods</h3>
+                  <p class="business-location">Cuttack, Odisha</p>
+                </div>
+                <button class="whatsapp-btn">
+                  <i class="fab fa-whatsapp"></i>
+                  WhatsApp
+                </button>
+              </div>
+
+              <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80" alt="Green Foods"
+                class="story-card-image">
+
+              <div class="reviewer-info">
+                <img src="https://i.pravatar.cc/150?img=25" alt="Priya Patel" class="reviewer-avatar">
+                <div class="reviewer-details">
+                  <h4>Priya Patel</h4>
+                  <p class="reviewer-action">Wrote a review</p>
+                </div>
+              </div>
+
+              <div class="story-rating">
+                <div class="stars">★★★★★</div>
+              </div>
+
+              <div class="story-review">
+                <p class="review-text">
+                  Excellent platform for small businesses! We started our organic food business with their help and now
+                  we're serving 500+ customers daily. The business tools and analytics they provide are incredibly
+                  helpful for tracking growth.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story Card 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="story-card">
+              <div class="story-card-header">
+                <div class="business-info">
+                  <h3>Style Studio</h3>
+                  <p class="business-location">Patia, Bhubaneswar</p>
+                </div>
+                <button class="whatsapp-btn">
+                  <i class="fab fa-whatsapp"></i>
+                  WhatsApp
+                </button>
+              </div>
+
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Style Studio"
+                class="story-card-image">
+
+              <div class="reviewer-info">
+                <img src="https://i.pravatar.cc/150?img=33" alt="Aisha Sharma" class="reviewer-avatar">
+                <div class="reviewer-details">
+                  <h4>Aisha Sharma</h4>
+                  <p class="reviewer-action">Wrote a review</p>
+                </div>
+              </div>
+
+              <div class="story-rating">
+                <div class="stars">★★★★★</div>
+              </div>
+
+              <div class="story-review">
+                <p class="review-text">
+                  Best decision we made for our salon business! Their booking system increased our appointments by 200%.
+                  Customer reviews and online presence have helped us become the top-rated salon in our area. Thank you
+                  for the amazing support!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Add jQuery (required for Owl Carousel) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <!-- Owl Carousel JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('.trending-carousel').owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true,
+        dots: false,
+        navText: ['<span>‹</span>', '<span>›</span>'],
+        autoplay: true,
+        smartSpeed: 600,
+        responsive: {
+          0: {
+            items: 1,
+            margin: 15
+          },
+          576: {
+            items: 1,
+            margin: 15
+          },
+          768: {
+            items: 2,
+            margin: 20
+          },
+          992: {
+            items: 3,
+            margin: 20
+          },
+          1200: {
+            items: 3,
+            margin: 20
+          }
+        }
+      });
+    });
+  </script>
+
+
+  <script>
+    $(document).ready(function () {
+      $('.popular-service-carousel').owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: false,
+        dots: true,
+        navText: ['<span>‹</span>', '<span>›</span>'],
+        autoplay: false,
+        smartSpeed: 600,
+        responsive: {
+          0: {
+            items: 1,
+            margin: 15
+          },
+          576: {
+            items: 2,
+            margin: 15
+          },
+          768: {
+            items: 3,
+            margin: 20
+          },
+          992: {
+            items: 4,
+            margin: 20
+          }
+        }
+      });
+    });
+  </script>
+
+
+  <script>
+    // Category Navigation Toggle
+    document.addEventListener('DOMContentLoaded', function () {
+      const categoryNavItems = document.querySelectorAll('.jd-category-nav-item');
+      const categoryContents = document.querySelectorAll('.jd-category-content-section');
+
+      categoryNavItems.forEach((item, index) => {
+        item.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Remove active class from all nav items
+          categoryNavItems.forEach(nav => nav.classList.remove('active'));
+
+          // Add active class to clicked item
+          this.classList.add('active');
+
+          // Hide all content sections
+          categoryContents.forEach(content => content.classList.remove('active'));
+
+          // Show corresponding content section
+          if (categoryContents[index]) {
+            categoryContents[index].classList.add('active');
+          }
+        });
+      });
+
+      // Prevent dropdown from closing when clicking inside
+      const categoryMega = document.querySelector('.jd-category-mega');
+      if (categoryMega) {
+        categoryMega.addEventListener('click', function (e) {
+          e.stopPropagation();
+        });
+      }
+    });
+  </script>
+
+<script>
+  const chatbot = document.getElementById("chatbot-box");
+  const toggleBtn = document.getElementById("chatbot-toggle");
+  const chatLabel = document.querySelector(".chat-label");
+
+  toggleBtn.onclick = toggleChatbot;
+
+  function toggleChatbot() {
+    const isOpen = chatbot.style.display === "flex";
+
+    if (isOpen) {
+      // CLOSE CHAT
+      chatbot.style.display = "none";
+      if (chatLabel) chatLabel.classList.remove("hidden");
+    } else {
+      // OPEN CHAT
+      chatbot.style.display = "flex";
+      if (chatLabel) chatLabel.classList.add("hidden");
+    }
+  }
+
+  function closeChatLabel(e) {
+    e.stopPropagation(); // prevent chat opening
+    chatLabel.classList.add("hidden");
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    const chat = document.getElementById("chatMessages");
+
+    chat.innerHTML += `<div class="user-msg">${msg}</div>`;
+    input.value = "";
+
+    setTimeout(() => {
+      chat.innerHTML += `<div class="bot-msg">I'm processing your request 🤖</div>`;
+      chat.scrollTop = chat.scrollHeight;
+    }, 600);
+  }
+</script>
+
+<script>
+  function toggleChatbot() {
+    const chatBox = document.getElementById("chatbot-box");
+    const label = document.querySelector(".chat-label");
+
+    chatBox.style.display =
+      chatBox.style.display === "flex" ? "none" : "flex";
+
+    if (label) label.style.display = "none";
+  }
+</script>
+
+<script>
+  function closeChatLabel(e) {
+    e.stopPropagation(); // prevent chatbot opening
+    document.querySelector('.chat-label').style.display = 'none';
+  }
+</script>
+
+
+</body>
+
+</html>
